@@ -126,6 +126,12 @@ app.get('/about', function(req, res) {
   res.render('pages/about');
 });
 
+app.get('/blog', function(req, res) {
+  res.render('pages/blog');
+});
+app.get('/app', function(req, res) {
+  res.render('pages/app');
+});
 
 // New post page
 app.get('/new', function(req, res) {
