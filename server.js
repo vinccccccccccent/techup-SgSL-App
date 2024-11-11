@@ -281,6 +281,9 @@ app.get('/new', function(req, res) {
   res.render('pages/new');
 });
 
+app.get('/tips', function(req, res) {
+  res.render('pages/tips');
+});
 
 
 
