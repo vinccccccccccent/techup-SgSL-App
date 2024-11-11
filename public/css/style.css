@@ -1,0 +1,37 @@
+.welcome-container {
+    text-align: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.new-post-btn-container{
+    text-align: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.post-container {
+    max-width: 800px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-container {
+    text-align: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.about-container > img{
+    margin-bottom: 40px;
+}
+
+.cancel-create-post {
+    text-align: center;
+}

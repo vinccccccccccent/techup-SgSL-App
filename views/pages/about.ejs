@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+<body>
+    <main class="container">
+        <!-- Navbar which can be reused across other pages -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Information about the about page -->
+        <div class="welcome-container">
+            <h1>About</h1>
+            <p>A short message from me</p>
+        </div>
+
+        <div class="about-container">
+            <img src="/images/about.jpg" alt="Picture of a van with a scenic landscape in the background">
+            <p>Welcome to my blog, the space where I share my thoughts, stories, and insights on a variety of topics that fascinate me, from personal reflections to wider cultural discussions. Launched in 2024, this blog aims to create a community of like-minded individuals who are looking for a mix of inspiration, entertainment, and thought-provoking content. Whether you're here for a quick read or to engage in deeper conversation, I'm glad you stopped by. Join me on this journey of exploration and let's discover the beauty and complexity of our world together.</p>
+            <br>
+            <a href="/">Read my blog!</a>
+        </div>
+
+    </main>
+</body>
+</html>

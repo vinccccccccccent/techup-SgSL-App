@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+<body>
+    <main class="container">
+        <!-- Navbar which can be reused across other pages -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Information welcoming visitors to my page -->
+        <div class="welcome-container">
+            <h1>Welcome to my blog</h1>
+            <h2>Learn about what happened in my day!</h2>
+        </div>
+
+        <div class="new-post-btn-container">
+           <a href="/new" class="button" role="button">+ New Post</a>
+        </div>
+
+        <!-- Show blog posts -->
+        <% blogs.forEach(post => { %>
+            <article class="post-container">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <form action="/delete/<%= post.id %>" method="post" onsubmit="return confirm('Do you really want to delete this post?');">
+                    <button class="outline primary" type="submit">Delete</button>
+                </form>
+            </article>
+        <% }); %>
+    </main>
+</body>
+</html>
