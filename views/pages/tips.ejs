@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+<body>
+    <main class="container">
+        <!-- Navbar which can be reused across other pages -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Create a new post headline -->
+        <div class="welcome-container">
+            <h1>Create a new post</h1>
+            <h2>Write whatever comes to mind!</h2>
+        </div>
+
+        <!-- Form to submit a new post -->
+        <div class="create-post-container">
+            <form method="post">
+                <fieldset>
+                  <label>
+                    Title
+                    <input name="title" placeholder="Write the name of this post..."/>
+                  </label>
+                </fieldset>
+
+                <label>
+                Content
+                <textarea name="content" placeholder="Write what's on your mind..." ></textarea>
+                </label>
+              
+                <input
+                  type="submit"
+                  value="🚀 Create post"
+                />
+              </form>
+        </div>
+
+        <!-- Back to homepage -->
+        <div class="cancel-create-post">
+          <a href="/">Cancel! Take me back to my blog!</a>
+        </div>
+        
+    </main>
+</body>
+</html>
