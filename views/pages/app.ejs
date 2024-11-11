@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+
+
+<body>
+    <header>
+        <h1>Learn Singapore Sign Language</h1> <!-- Main heading of the webpage -->
+        <p>Type a phrase to view the corresponding sign language demonstration.</p> <!-- Subtitle for instructions -->
+    </header>
+
+    <main>
+        <section id="input-section">
+            <label for="phrase-input">Enter a Phrase:</label> <!-- Label for the input field -->
+            <input type="text" id="phrase-input" placeholder="e.g., Good Morning"> <!-- Input field for user to type a phrase -->
+            <button id="search-button">Search</button> <!-- Button to trigger search -->
+        </section>
+
+        <section id="video-section">
+            <h2>Sign Language Demonstration</h2> <!-- Heading for the demonstration section -->
+            <img id="sign-gif" src="" alt="Sign Language GIF" style="display: none;"> <!-- Placeholder for GIF, initially hidden -->
+            <video id="sign-video" controls style="display: none;"> <!-- Placeholder for video, initially hidden -->
+                <source id="video-source" src="" type="video/mp4"> <!-- Video source -->
+                Your browser does not support the video tag. <!-- Fallback text for unsupported browsers -->
+            </video>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SgSL Learning Webpage</p> <!-- Footer with copyright notice -->
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to the JavaScript file for functionality -->
+</body>
+</html>

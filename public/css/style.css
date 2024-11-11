@@ -35,3 +35,24 @@
 .cancel-create-post {
     text-align: center;
 }
+
+
+body {
+    font-family: Arial, sans-serif; /* Sets the font for the webpage */
+    text-align: center; /* Centers the text in the body */
+    padding: 20px; /* Adds padding around the content */
+}
+
+header, main, footer {
+    max-width: 600px; /* Sets a maximum width for the sections */
+    margin: auto; /* Centers the sections horizontally */
+}
+
+#input-section {
+    margin-bottom: 20px; /* Adds space below the input section */
+}
+
+#sign-video, #sign-gif {
+    max-width: 100%; /* Makes the video and GIF responsive to the screen width */
+    margin-top: 20px; /* Adds space above the video/GIF */
+}
