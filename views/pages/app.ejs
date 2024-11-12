@@ -5,47 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
-    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="/css/style.css"> <!-- Custom CSS -->
 </head>
-
 
 <body>
     <main class="container">
-        <!-- Navbar which can be reused across other pages -->
         <%- include('../partials/navbar'); %>
+<br>
+<br>
+        <header>
+            <h1>Learn Singapore Sign Language</h1>
+            <p>Type a phrase to view a (possibly slightly wrong, but likely very close) corresponding sign language demonstration.</p>
+        </header>
 
-        <!-- Create a new post headline -->
-        <div class="welcome-container">
-            <h1>Create a new post</h1>
-            <h2>Write whatever comes to mind!</h2>
-        </div>
-
-    <header>
-        <h1>Learn Singapore Sign Language</h1> <!-- Main heading of the webpage -->
-        <p>Type a phrase to view the corresponding sign language demonstration.</p> <!-- Subtitle for instructions -->
-    </header>
-
-    <main>
         <section id="input-section">
-            <label for="phrase-input">Enter a Phrase:</label> <!-- Label for the input field -->
-            <input type="text" id="phrase-input" placeholder="e.g., Good Morning"> <!-- Input field for user to type a phrase -->
-            <button id="search-button">Search</button> <!-- Button to trigger search -->
+            <label for="phrase-input">Enter a Phrase:</label>
+            <input type="text" id="phrase-input" placeholder="e.g., Let's eat chicken rice at Tampines later!">
+            <button id="search-button">Search</button>
         </section>
+<br>
+<section id="tokenized-words-section">
+    <h5> Words to Sign:</h5>
+    <div id="tokenized-words"></div>
+</section>
 
+<hr>
+<br>
         <section id="video-section">
-            <h2>Sign Language Demonstration</h2> <!-- Heading for the demonstration section -->
-            <img id="sign-gif" src="" alt="Sign Language GIF" style="display: none;"> <!-- Placeholder for GIF, initially hidden -->
-            <video id="sign-video" controls style="display: none;"> <!-- Placeholder for video, initially hidden -->
-                <source id="video-source" src="" type="video/mp4"> <!-- Video source -->
-                Your browser does not support the video tag. <!-- Fallback text for unsupported browsers -->
-            </video>
+            <h2>Sign Language Demonstration</h2>
+            <div id="signs-container">
+                <!-- This will hold the fetched GIFs -->
+            </div>
         </section>
     </main>
-
+<br>
+<br>
+<br>
+<hr>
     <footer>
-        <p>&copy; 2024 SgSL Learning Webpage</p> <!-- Footer with copyright notice -->
+        <p>&copy; A 2024 (Nov) TechUp Test Development </p>
     </footer>
 
-    <script src="script.js"></script> <!-- Link to the JavaScript file for functionality -->
+    <script src="/scripts/script.js"></script>
 </body>
 </html>
