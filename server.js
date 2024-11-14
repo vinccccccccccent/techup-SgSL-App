@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(cors());.
+app.use(cors());
 
 // Serve static files from the 'public' folder (for CSS, JavaScript, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
