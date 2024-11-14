@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   const phraseInput = document.getElementById('phrase-input');
   const searchButton = document.getElementById('search-button');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   searchButton.addEventListener('click', async function() {
     const phrase = phraseInput.value.trim();
-    
+  
     if (phrase) {
       // Step 1: Normalize and Tokenize Input
       const normalizedPhrase = normalizeInput(phrase);
@@ -14,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Sanity Check 1: Display tokenized words
       displayTokenizedWords(searchTerms);
+      
+
+
+
+
+
       
       // Step 2: Fetch and display GIFs for each word
       await fetchAndDisplayGifs(searchTerms);
@@ -53,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
     signsContainer.innerHTML = ''; // Clear previous GIFs
 
     for (const term of searchTerms) {
-      const gifUrl = await fetchGifForWord(term);
+      // const gifUrl = await fetchGifForWord(term);
+ //     const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8002.app.github.dev/search?phrase=${term}`) //change the before /search part to the deployed URL!!!!!!!!!
+      const response = await fetch(`https://sgsignintro.com//search?phrase=${term}`)
+      const gifUrl = (await response.json())[0]
+      console.log('gifUrl: ', gifUrl)
       if (gifUrl) {
         displayGif(gifUrl, term); // Display GIF with word label (Sanity Check 2)
       } else {
@@ -64,10 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Fetch the GIF URL for each word from the NTU SgSL Sign Bank
   async function fetchGifForWord(word) {
-    const url = `https://blogs.ntu.edu.sg/sgslsignbank/word?frm-word=${encodeURIComponent(word)}`;
+    const url = `https://blogs.ntu.edu.sg/sgslsignbank/word/?frm-word=${encodeURIComponent(word)}`;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { Host: "blogs.ntu.edu.sg", "User-Agent": "test", }
+      });
       const text = await response.text();
       
       // Extract GIF URL from the HTML response
@@ -81,16 +95,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Parse HTML to find the GIF URL for each word
   function extractGifUrlFromHtml(htmlContent) {
+    console.log('htmlContent: ', htmlContent);
     const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
+
+    console.log('doc: ', doc)
     
     // Construct dynamic selector based on the word and HTML structure
-    const gifElement = doc.evaluate(
-      '/html/body/div[1]/div/div/div/article/div/div/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/img',
-      doc,
-      null,
-      XPathResult.FIRST_ORDERED_NODE_TYPE,
-      null
-    ).singleNodeValue;
+    // const gifElement = doc.evaluate(
+    //   '/html/body/div[1]/div/div/div/article/div/div/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/img',
+    //   doc,
+    //   null,
+    //   XPathResult.FIRST_ORDERED_NODE_TYPE,
+    //   null
+    // ).singleNodeValue;
+
+   const gifElement =  doc.querySelectorAll('[src$=".gif"]')
     
     return gifElement ? gifElement.src : null; // Return src attribute
   }

@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 // Route to fetch sign language GIFs based on the search phrase
 app.get('/search', async (req, res) => {
     const phrase = req.query.phrase;  // Get the phrase from the query string
+  console.log('searching...', phrase)
     const url = `https://blogs.ntu.edu.sg/sgslsignbank/word/?frm-word=${encodeURIComponent(phrase)}`;
 
     try {
@@ -57,7 +58,7 @@ app.get('/tips', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
