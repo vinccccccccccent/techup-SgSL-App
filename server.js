@@ -5,6 +5,20 @@ const path = require('path');
 
 const app = express();
 
+// ALLOW CORS --------------------
+const cors = require('cors'); // Import the CORS package
+
+// Configure CORS options to allow requests from your frontend domain
+const corsOptions = {
+    origin: 'https://techupdemo-new.onrender.com', // Replace this with your actual frontend URL
+    optionsSuccessStatus: 200 // For compatibility with legacy browsers
+};
+
+// Use the CORS middleware with your specified options
+app.use(cors(corsOptions));
+
+//---------------------
+
 // Serve static files from the 'public' folder (for CSS, JavaScript, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
