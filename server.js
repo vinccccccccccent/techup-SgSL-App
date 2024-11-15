@@ -14,7 +14,7 @@ const corsOptions = {
     optionsSuccessStatus: 200 // For compatibility with legacy browsers
 };
 
-// Use the CORS middleware with your specified options
+// // Use the CORS middleware with your specified options
 app.use(cors(corsOptions));
 
 //---------------------
@@ -72,7 +72,7 @@ app.get('/tips', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8002;
+const PORT = process.env.PORT || 8807;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -24,20 +24,25 @@
 <br>
 <br>
         <header>
-            <h1>Learn Singapore Sign Language</h1>
+            <h1>Start Signing SgSL Instantly</h1>
             <p>Type a phrase to view a (possibly slightly wrong, but likely very close) corresponding sign language demonstration.</p>
-       <p> Some terms require an extra tag on the back to make it work! Examples include: </p>
-       <ul>
-        <li> places - add <b>%20(Place)</b> to the back       </li>
-        <li> multiple words - add <b>%20</b> in between the two words </li>
-        <li> numerals - add <b>%20(Numeral)</b> to the back</li>
-       </ul>
-       </p>
         </header>
+
+        <div id="info-box">
+            <p class="centered-text">Some terms require an extra tag on the back to make it work!</p>
+            <ul>
+                
+                    <li>Places - add <code class="code-red">%20(Place)</code> to the back</li>
+                    <li>Numerals - add <code class="code-red">%20(Numeral)</code> to the back (no numbers!!)</li>
+                    <li>Term includes multiple words - add <code class="code-red">%20</code> in between</li>
+                    <li>No punctuation required!</li>
+            </ul>
+            </div>
+<br>
 
         <section id="input-section">
             <label for="phrase-input">Enter a Phrase:</label>
-            <input type="text" id="phrase-input" placeholder="e.g., Let's eat chicken rice at Tampines later!">
+            <input type="text" id="phrase-input" placeholder="e.g., Eat chicken rice Tampines%20(Place) later">
             <button id="search-button">Search</button>
         </section>
 <br>

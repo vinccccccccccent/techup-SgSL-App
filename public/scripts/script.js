@@ -16,11 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Sanity Check 1: Display tokenized words
       displayTokenizedWords(searchTerms);
       
-
-
-
-
-
       
       // Step 2: Fetch and display GIFs for each word
       await fetchAndDisplayGifs(searchTerms);
@@ -32,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Normalize input: Convert to lowercase and remove non-letter characters
   function normalizeInput(input) {
     return input
- //     .toLowerCase()
- //     .replace(/[^a-z\s]/g, '') 
+      .toLowerCase()
+      .replace(/[^a-z\s%()20]/g, '')
   //    .trim();
   }
 
@@ -61,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (const term of searchTerms) {
       // const gifUrl = await fetchGifForWord(term);
-  //   const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8002.app.github.dev/search?phrase=${term}`) //change!!!!!!!!!
-      const response = await fetch(`https://sgsignintro.com/search?phrase=${term}`)
+     const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8002.app.github.dev/search?phrase=${term}`) //change!!!!!!!!!
+  //    const response = await fetch(`https://sgsignintro.com/search?phrase=${term}`)
       const gifUrl = (await response.json())[0]
       console.log('gifUrl: ', gifUrl)
       if (gifUrl) {
