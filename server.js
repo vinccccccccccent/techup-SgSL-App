@@ -10,7 +10,7 @@ const cors = require('cors'); // Import the CORS package
 
 // Configure CORS options to allow requests from your frontend domain
 const corsOptions = {
-    origin: 'https://techupdemo-new.onrender.com', // Replace this with your actual frontend URL
+    origin: 'https://sgsignintro.com/', // Replace this with your actual frontend URL
     optionsSuccessStatus: 200 // For compatibility with legacy browsers
 };
 
