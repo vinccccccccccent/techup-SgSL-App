@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (const term of searchTerms) {
       // const gifUrl = await fetchGifForWord(term);
-     const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8002.app.github.dev/search?phrase=${term}`) //change!!!!!!!!!
-  //    const response = await fetch(`https://sgsignintro.com/search?phrase=${term}`)
+ //    const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8002.app.github.dev/search?phrase=${term}`) //change!!!!!!!!!
+     const response = await fetch(`https://sgsignintro.com/search?phrase=${term}`)
       const gifUrl = (await response.json())[0]
       console.log('gifUrl: ', gifUrl)
       if (gifUrl) {
