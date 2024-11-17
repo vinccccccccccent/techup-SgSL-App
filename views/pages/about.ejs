@@ -19,25 +19,118 @@
 
 </script>
 </head>
+<style>
+    /* Apply left alignment to the entire page */
+    body {
+        text-align: left; /* Left-align text */
+    }
 
+    /* Center the container but keep the content left-aligned */
+    .container {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 900px;
+    }
+
+    /* Make sure headers are aligned left */
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left;
+    }
+
+    /* Left-align text inside paragraphs and lists */
+    p, ul {
+        text-align: left;
+    }
+
+    /* Style for list items in the credits section */
+    ul {
+        list-style-type: none; /* Remove bullet points */
+        padding-left: 0;
+    }
+
+    ul li {
+        padding-left: 1em;
+    }
+
+    /* Optional styling for a nice footer */
+    footer {
+        text-align: center;
+        padding: 1em 0;
+    }
+</style>
+</head>
 <body>
     <main class="container">
-        <!-- Navbar which can be reused across other pages -->
         <%- include('../partials/navbar'); %>
+<br>
+<br>
+<main class="container">
+<header>
+    <h1>About This App</h1>
+</header>
+<br>
+<section>     <img src="/images/Picture.jpg" alt="Picture of a Park"></section>
 
-        <!-- Information about the about page -->
-        <div class="welcome-container">
-            <h1>About</h1>
-            <p>A short message from me</p>
-        </div>
-
-        <div class="about-container">
-            <img src="/images/about.jpg" alt="Picture of a van with a scenic landscape in the background">
-            <p>Welcome to my blog, the space where I share my thoughts, stories, and insights on a variety of topics that fascinate me, from personal reflections to wider cultural discussions. Launched in 2024, this blog aims to create a community of like-minded individuals who are looking for a mix of inspiration, entertainment, and thought-provoking content. Whether you're here for a quick read or to engage in deeper conversation, I'm glad you stopped by. Join me on this journey of exploration and let's discover the beauty and complexity of our world together.</p>
-            <br>
-            <a href="/">Read my blog!</a>
-        </div>
-
-    </main>
+<section id="problem-statement">  
+    <br>
+    <h2>Problem Statement</h2>
+    <p>
+        Singapore Sign Language (SgSL) is an essential skill for communicating with the Deaf community in Singapore.
+        However, unlike traditional languages, SgSL lacks robust online translation tools for new learners.
+    </p>
+    <p>
+        People who wish to learn SgSL online—whether for personal, educational, or professional reasons—often find it
+        challenging to access resources that are quick and intuitive to learn from. Most available resources focus on
+        archiving signs rather than making them accessible to beginners, and the majority of them are offline or geared
+        towards helping experienced learners refine their skills.
+    </p>
+    <p>
+        This lack of convenient, centralized tools creates artificial barriers for those eager to learn SgSL, reducing
+        its adoption rate. As a result, many individuals struggle to communicate effectively with the Deaf community,
+        inadvertently limiting their opportunities for connection and mutual understanding, and ultimately impacting the
+        well-being of the Deaf community.
+    </p>
+</section>
+<br>
+<section id="how-it-works">
+    <h2>How the App Works</h2>
+    <p>This web application is designed to make learning SgSL easier and more accessible:</p>
+    <ol>
+        <li><strong>Enter a Phrase</strong>: Type any phrase you want to learn in the input field.</li>
+        <li><strong>Search for Signs</strong>: The app tokenizes the input into individual words and retrieves the
+            corresponding sign language demonstrations in the form of GIFs.
+        </li>
+        <li><strong>Learn Through Visuals</strong>: For each word in your input, the app displays a GIF showcasing how
+            the sign is performed.
+        </li>
+        <li><strong>Feedback</strong>: If certain words don’t have available signs, the app will let you know and provide
+            a visual list of those words to help you adjust your input.
+        </li>
+    </ol>
+    <p>
+        The app leverages existing sign banks and databases to present visual learning tools in an intuitive and
+        beginner-friendly format, helping users take their first steps toward mastering SgSL.
+    </p>
+</section>
+<br>
+<section id="credits">
+    <h2>Credits</h2>
+    <p>We extend our deepest gratitude to the creators and maintainers of the following resources, whose work forms the foundation of this app:</p>
+    <ul>
+        <li><strong>Singapore Sign Language GIFs:</strong> Sourced from the <a href="https://blogs.ntu.edu.sg/sgslsignbank" target="_blank">SgSL Sign Bank</a> by NTU.</li>
+        <li><strong>American Sign Language GIFs:</strong> Sourced from <a href="https://www.lifeprint.com" target="_blank">Lifeprint.com</a>.</li>
+    </ul>
+    <p>A heartfelt thanks to the instructors and teaching assistants at <strong>TechUp</strong> (thanks Edwin for taking 2 long office hours to sort out the code with me), whose guidance and support were invaluable in bringing this project to life.</p>
+    <p>An informal thank you to all the resources available online to help craft and add functionality to this web application as well. It was impressively and stunningly simple with the help of AI tools like ChatGPT. </p>
+    <p>This app was created with the hope of fostering better communication and understanding between the hearing and Deaf communities in Singapore.</p>
+</section>
+</main>
+    <br>
+    <footer>
+        <p>&copy; A 2024 (Nov) TechUp Test Development </p>
+        <p style="font-size: 0.8em; color: gray;">
+          Disclaimer:
+This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website. </p>
+    </footer>
 </body>
 </html>
