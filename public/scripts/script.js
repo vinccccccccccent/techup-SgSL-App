@@ -1,22 +1,21 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const phraseInput = document.getElementById('phrase-input');
   const searchButton = document.getElementById('search-button');
   const signsContainer = document.getElementById('signs-container');
   const tokenizedWordsContainer = document.getElementById('tokenized-words'); // Container for tokenized words
 
-  searchButton.addEventListener('click', async function() {
+  searchButton.addEventListener('click', async function () {
     const phrase = phraseInput.value.trim();
-  
+
     if (phrase) {
       // Step 1: Normalize and Tokenize Input
       const normalizedPhrase = normalizeInput(phrase);
       const searchTerms = extractSearchTerms(normalizedPhrase);
-      
+
       // Sanity Check 1: Display tokenized words
       displayTokenizedWords(searchTerms);
-      
-      
+
       // Step 2: Fetch and display GIFs for each word
       await fetchAndDisplayGifs(searchTerms);
     } else {
@@ -26,21 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Normalize input: Convert to lowercase and remove non-letter characters
   function normalizeInput(input) {
-    return input
-      .toLowerCase()
-      .replace(/[^a-z\s%()20]/g, '')
-  //    .trim();
+    return input.toLowerCase().replace(/[^a-z\s%()20]/g, '');
   }
 
   // Tokenize input into individual words
   function extractSearchTerms(input) {
-    return input.split(/\s+/); 
+    return input.split(/\s+/);
   }
 
-  // Step 1: Display tokenized words (Sanity Check 1)
+  // Display tokenized words (Sanity Check 1)
   function displayTokenizedWords(words) {
     tokenizedWordsContainer.innerHTML = ''; // Clear previous content
-    
+
     // Join words with commas and display them
     const wordsText = words.join(', ');
     const wordsParagraph = document.createElement('p');
@@ -48,61 +44,60 @@ document.addEventListener('DOMContentLoaded', function() {
     tokenizedWordsContainer.appendChild(wordsParagraph);
   }
 
-  //-----------------------------------------------------------------------
-  // Step 2: Fetch GIFs for each word
-
+  // Fetch GIFs for each word
   async function fetchAndDisplayGifs(searchTerms) {
-    signsContainer.innerHTML = ''; // Clear previous GIFs
+    signsContainer.innerHTML = '';
+    const notFoundWords = []; // Array to store words not found
+    const notFoundSection = document.getElementById('not-found-section');
+    const notFoundWordsContainer = document.getElementById('not-found-words');
 
     for (const term of searchTerms) {
-      // const gifUrl = await fetchGifForWord(term);
-     const response = await fetch(`https://ominous-train-4jwrpjpj6v4wc5jrq-8807.app.github.dev/search?phrase=${term}`) //change!!!!!!!!!
- //    const response = await fetch(`https://sgsignintro.com/search?phrase=${term}`)
-      const gifUrl = (await response.json())[0]
-      console.log('gifUrl: ', gifUrl)
-      if (gifUrl) {
-        displayGif(gifUrl, term); // Display GIF with word label (Sanity Check 2)
-      } else {
-        alert(`No sign found for the word: ${term}`);
+      try {
+        const response = await fetch(`/search?phrase=${term}`);
+        const data = await response.json();
+
+        if (data.gifs && data.gifs.length > 0) {
+          data.gifs.forEach((gifUrl) => {
+            displayGif(gifUrl, term, data.source);
+          });
+        } else {
+         // alert(`No sign found for: ${term}`);
+         notFoundWords.push(term);
+        }
+      } catch (error) {
+        console.error(`Error fetching GIF for ${term}:`, error);
+        notFoundWords.push(term); // Treat errors as "not found" cases
       }
+    }
+      // Update the not-found section
+      if (notFoundWords.length > 0) {
+        notFoundWordsContainer.innerHTML = notFoundWords
+            .map(word => `<span>${word}</span>`)
+            .join(', ');
+        notFoundSection.style.display = 'block'; // Make the section visible
+    } else {
+        notFoundSection.style.display = 'none'; // Hide if no words are "not found"
     }
   }
 
-  // Parse HTML to find the GIF URL for each word
-  function extractGifUrlFromHtml(htmlContent) {
-    console.log('htmlContent: ', htmlContent);
-    const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
-
-    console.log('doc: ', doc)
- 
-
-   const gifElement =  doc.querySelectorAll('[src$=".gif"]')
-    
-    return gifElement ? gifElement.src : null; // Return src attribute
-  }
-
-  //-----------------------------------------------------------------------
-  // Step 3: Display the GIF with the word label (Sanity Check 2)
-  function displayGif(gifUrl, word) {
+  function displayGif(gifUrl, word, source) {
     const gifContainer = document.createElement('div');
-    gifContainer.classList.add('gif-container'); // Style container if needed
-    
+    gifContainer.classList.add('gif-container');
+
     const gifElement = document.createElement('img');
     gifElement.src = gifUrl;
     gifElement.alt = `Sign Language GIF for ${word}`;
-    
+
     const wordLabel = document.createElement('p');
-    wordLabel.textContent = `Signing for: ${word}`;
-    
+    wordLabel.textContent = `Signing for: ${word} (${source})`;
+    if (source.toLowerCase() === 'asl') {
+      wordLabel.style.color = 'red';
+  }
     gifContainer.appendChild(gifElement);
-    gifContainer.appendChild(wordLabel); // Add word label below GIF
-    
-    signsContainer.appendChild(gifContainer); // Add GIF container to signs container
+    gifContainer.appendChild(wordLabel);
+    signsContainer.appendChild(gifContainer);
   }
 });
-
-
-
 
 
 

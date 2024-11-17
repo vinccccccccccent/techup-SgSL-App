@@ -24,48 +24,77 @@
 <br>
 <br>
         <header>
-            <h1>Start Signing SgSL Instantly</h1>
-            <p>Type a phrase to view a (possibly slightly wrong, but likely very close) corresponding sign language demonstration.</p>
+            <h1>Start Signing Instantly</h1>
+            <p>Type a phrase to view a (possibly slightly wrong, but likely very close) corresponding sign language demonstration in Singapore Sign Language (SgSL) or American Sign Language (ASL).</p>
         </header>
 
         <div id="info-box">
             <p class="centered-text">Some terms require an extra tag on the back to make it work!</p>
             <ul>
                 
-                    <li>Places - add <code class="code-red">%20(Place)</code> to the back</li>
+                    <li>Specific Place Names - add <code class="code-red">%20(Place)</code> to the back</li>
                     <li>Numerals - add <code class="code-red">%20(Numeral)</code> to the back (no numbers!!)</li>
                     <li>Term includes multiple words - add <code class="code-red">%20</code> in between</li>
                     <li>No punctuation required!</li>
             </ul>
+            <p> Apologies, but the total dictionary is only about 1,000 words, so some words might not work </p>
             </div>
 <br>
 
-        <section id="input-section">
-            <label for="phrase-input">Enter a Phrase:</label>
-            <input type="text" id="phrase-input" placeholder="e.g., Eat chicken rice Tampines%20(Place) later">
-            <button id="search-button">Search</button>
-        </section>
-<br>
-<section id="tokenized-words-section">
-    <h5> Words to Sign:</h5>
-    <div id="tokenized-words"></div>
+<section id="suggested-words-section" style="font-size: 0.8em; margin-bottom: 1em;">
+  <h5>Suggested Words and Phrases:</h5>
+  <p>
+      Try phrases like 
+      <span class="suggested-word">"Eat chicken rice later together"</span>, 
+      <span class="suggested-word">"Time for work!"</span>, 
+      or 
+      <span class="suggested-word">"Meet at Tiong%20Bahru%20(Place) for dinner"</span>.
+  </p>
 </section>
 
-<hr>
-<br>
-        <section id="video-section">
-            <h2>Sign Language Demonstration</h2>
-            <div id="signs-container">
-                <!-- This will hold the fetched GIFs -->
-            </div>
-        </section>
-    </main>
+<section id="input-section">
+    <h2>Search for a Sign</h2>
+    <input type="text" id="phrase-input" placeholder="Enter a phrase or word">
+    <button id="search-button">Search</button>
+  </section>
+
+  <!-- Tokenized Words Section -->
+  <section id="tokenized-words-section">
+    <h3>Tokenized Words</h3>
+    <div id="tokenized-words">
+      <!-- Dynamically populated with tokenized words -->
+    </div>
+  </section>
+
+  <!-- Signs Display Section -->
+  <section id="signs-section">
+    <h3>Sign Results</h3>
+
+    <section id="not-found-section" style="display: none; margin-top: 1em;">
+      <div id="not-found-box" style="display: flex; align-items: center; gap: 0.5em; border: 1px solid red; padding: 0.5em; background-color: #ffe6e6; border-radius: 5px;">
+          <h5 style="margin: 0; font-size: 1em;">Words Without Signs:</h5>
+          <div id="not-found-words" style="color: red; font-size: 0.9em; flex: 1;">
+              <!-- Words not found will appear here -->
+          </div>
+      </div>
+  </section>
+    <div id="signs-container">
+      <!-- Dynamically populated with GIFs and labels -->
+    </div>
+  </section>
+
+
+
+</main>
 <br>
 <br>
 <br>
 <hr>
     <footer>
         <p>&copy; A 2024 (Nov) TechUp Test Development </p>
+        <p style="font-size: 0.8em; color: gray;">
+          Disclaimer:
+This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website. </p>
     </footer>
 
     <script src="/scripts/script.js"></script>

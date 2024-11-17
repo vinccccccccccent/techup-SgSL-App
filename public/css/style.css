@@ -55,7 +55,7 @@ body {
 }
 
 header, main, footer {
-    max-width: 600px; /* Sets a maximum width for the sections */
+    max-width: 1200px; /* Sets a maximum width for the sections */
     margin: auto; /* Centers the sections horizontally */
 }
 
@@ -96,3 +96,16 @@ header, main, footer {
 .centered-text {
     text-align: center;
 }
+
+
+
+
+#suggested-words-section {
+    text-align: center; /* Center the section */
+    font-size: 0.8em; /* Small font */
+    color: #555; /* Light gray color for text */
+}
+
+
+
+
